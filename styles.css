@@ -37,3 +37,15 @@ img {
   height: auto;
 
 }
+
+/* styles for lists */
+ol, ul {
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+/* styles for list items */
+li {
+  margin-bottom: 10px;
+}
+
