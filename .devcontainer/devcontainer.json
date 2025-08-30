@@ -1,29 +1,23 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-	"name": "Ubuntu",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:jammy",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"ritwickdey.LiveServer"
-			]
-		}
-	}
+  "name": "Ubuntu (auto-fork)",
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+  // Install GitHub CLI so the script can fork & rewire remotes.
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ritwickdey.LiveServer"
+      ]
+    }
+  },
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
+  // Make the script executable (if needed) and run it automatically.
+  "postCreateCommand": "bash -lc 'chmod +x .devcontainer/auto-fork.sh 2>/dev/null || true; .devcontainer/auto-fork.sh'"
 
-	// Configure tool-specific properties.
-	// "customizations": {},
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+  // "forwardPorts": [],
+  // "remoteUser": "root"
 }
