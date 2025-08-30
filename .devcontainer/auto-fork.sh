@@ -100,4 +100,11 @@ fi
 log "Remotes configured:"
 git remote -v | sed 's/^/[auto-fork]   /'
 
-log "Done. 'origin' -> your fork, 'upstream' -> $upstream_owner/$repo_name."
+# Sync main branch from upstream to origin (fork)
+log "Syncing 'main' branch from upstream to your fork..."
+git fetch upstream main >/dev/null 2>&1 || { log "Failed to fetch upstream/main."; exit 0; }
+git checkout main >/dev/null 2>&1 || { log "Failed to checkout main branch."; exit 0; }
+git reset --hard upstream/main >/dev/null 2>&1 || { log "Failed to reset main to upstream/main."; exit 0; }
+git push origin main --force >/dev/null 2>&1 || { log "Failed to push main to origin."; exit 0; }
+
+log "Done. 'origin' -> your fork, 'upstream' -> $upstream_owner/$repo_name. 'main' branch synced."
