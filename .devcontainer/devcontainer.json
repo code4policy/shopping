@@ -11,12 +11,19 @@
     "vscode": {
       "extensions": [
         "ritwickdey.LiveServer"
-      ]
+      ],
+      "settings": {
+        "git.postCommitCommand": "push",
+        "git.rememberPostCommitCommand": true,
+        "git.enableSmartCommit": true,
+        "git.showPushSuccessNotification": true
+      }
     }
   },
 
   // Make the script executable (if needed) and run it automatically.
-  "postCreateCommand": "bash -lc 'chmod +x .devcontainer/auto-fork.sh 2>/dev/null || true; .devcontainer/auto-fork.sh'"
+  // Also configure git to auto-setup remote tracking and remember PR preference
+  "postCreateCommand": "bash -lc 'chmod +x .devcontainer/auto-fork.sh 2>/dev/null || true; .devcontainer/auto-fork.sh; git config --global push.default current; git config --global push.autoSetupRemote true'"
 
   // "forwardPorts": [],
   // "remoteUser": "root"
