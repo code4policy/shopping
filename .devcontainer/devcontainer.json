@@ -10,7 +10,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ritwickdey.LiveServer"
+        "ritwickdey.LiveServer",
+        "ghost-stage.ghost-stage"
       ],
       "settings": {
         "git.postCommitCommand": "push",
