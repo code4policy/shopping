@@ -24,7 +24,7 @@
 
   // Make the script executable (if needed) and run it automatically.
   // Also configure git to auto-setup remote tracking and remember PR preference
-  "postCreateCommand": "bash -lc '.devcontainer/auto-fork.sh; git config --global push.default current; git config --global push.autoSetupRemote true'"
+  "postCreateCommand": "git config --global push.default current; git config --global push.autoSetupRemote true"
 
   // "forwardPorts": [],
   // "remoteUser": "root"
