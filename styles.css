@@ -27,6 +27,7 @@ h2 {
 /* styles for paragraph */
 p {
     color: black;
+    font-family: Arial, sans-serif;
 }
 
 /* styles for image */
@@ -47,5 +48,6 @@ ol, ul {
 /* styles for list items */
 li {
   margin-bottom: 10px;
+  font-family: Arial, sans-serif;
 }
 
